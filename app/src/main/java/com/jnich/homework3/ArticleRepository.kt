@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Query
 
-object PostRepository {
+object ArticleRepository {
     private val api : Api
 
     init {
@@ -23,7 +23,7 @@ object PostRepository {
         api = retrofit.create(Api::class.java)
     }
 
-    fun getBusinessResults(
+    fun getArticleResults(
         query: String? = null,
         website: String? = null,
         onSuccess: (articleResults: List<Article>) -> Unit,

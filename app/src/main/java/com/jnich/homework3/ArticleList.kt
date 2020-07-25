@@ -1,12 +1,14 @@
 package com.jnich.homework3
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.jnich.homework3.model.Article
 import kotlinx.android.synthetic.main.fragment_article_list.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,12 +47,13 @@ class ArticleList : Fragment() {
 
         recyclerArticleList.layoutManager = LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
 
-        val list = ArrayList<ArticleOld>()
-        list.add(ArticleOld(0, "8 Amazing Secrets!", "Jordan Clark", "I lied", "www.com"))
-        list.add(ArticleOld(1, "8 Boring Secrets.", "Gordon Clerk", "1. Your Life", "www.com"))
-        list.add(ArticleOld(1, "8 More Amazing Secrets!", "Jordan Clark", "Stop clicking these", "www.com"))
+        var articles: List<Article>? = null
+        ArticleRepository.getArticleResults(onSuccess = {
+            articles = it
+        },
+        onError = { Log.d("ArticleList", "Failed to get articles")})
 
-        val adapter = ArticleAdapter(context!!, list)
+        val adapter = ArticleAdapter(context!!, articles!!)
         recyclerArticleList.adapter = adapter
     }
 
