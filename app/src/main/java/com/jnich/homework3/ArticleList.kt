@@ -23,14 +23,14 @@ private const val ARG_PARAM2 = "param2"
  */
 class ArticleList : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var query: String? = null
+    private var website: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            query = it.getString(ARG_PARAM1)
+            website = it.getString(ARG_PARAM2)
         }
     }
 
@@ -47,13 +47,15 @@ class ArticleList : Fragment() {
 
         recyclerArticleList.layoutManager = LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
 
-        var articles: List<Article>? = null
-        ArticleRepository.getArticleResults(onSuccess = {
-            articles = it
-        },
-        onError = { Log.d("ArticleList", "Failed to get articles")})
+        val adapter = ArticleAdapter(context!!, ArrayList())
+        ArticleRepository.getArticleResults(
+            query = query,
+            website = website,
+            onSuccess = {
+                adapter.addArticles(it)
+            },
+            onError = { Log.d("ArticleList", "Failed to get articles")})
 
-        val adapter = ArticleAdapter(context!!, articles!!)
         recyclerArticleList.adapter = adapter
     }
 
@@ -68,11 +70,11 @@ class ArticleList : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(query: String? = null, website: String? = null) =
             ArticleList().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_PARAM1, query)
+                    putString(ARG_PARAM2, website)
                 }
             }
     }

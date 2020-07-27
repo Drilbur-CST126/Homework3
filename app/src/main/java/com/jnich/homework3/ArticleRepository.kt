@@ -16,7 +16,7 @@ object ArticleRepository {
 
     init {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://newsapi.org/v2/")
+            .baseUrl("https://newsapi.org/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -44,7 +44,7 @@ object ArticleRepository {
                         val body = response.body()
 
                         if (body != null) {
-                            onSuccess(body.articles)
+                            onSuccess.invoke(body.articles)
                         } else {
                             Log.d("PostRepository", "Empty body")
                             onError.invoke()
@@ -56,5 +56,6 @@ object ArticleRepository {
                 }
 
             })
+
     }
 }

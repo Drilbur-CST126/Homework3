@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface Api {
 
-    @GET("top-headlines")
+    @GET("everything")
     fun getArticleResult(
         @Query("q") query: String? = null,
         @Query("domains") website: String? = null,

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jnich.homework3.model.Article
 
-class ArticleAdapter(private val context: Context, private val articleList: List<Article>)
+class ArticleAdapter(private val context: Context, private val articleList: MutableList<Article>)
     : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context!!)
@@ -30,4 +30,8 @@ class ArticleAdapter(private val context: Context, private val articleList: List
         holder.articleAuthor.text = context.getString(R.string.txt_author_descriptor, articleList[position].author)
     }
 
+    fun addArticles(incoming: List<Article>) {
+        articleList.addAll(incoming)
+        notifyItemRangeInserted(articleList.size, incoming.size - 1)
+    }
 }
