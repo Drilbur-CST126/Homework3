@@ -8,13 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jnich.homework3.model.Article
 import kotlinx.android.synthetic.main.fragment_article_list.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM1 = "query"
+private const val ARG_PARAM2 = "website"
 
 /**
  * A simple [Fragment] subclass.
@@ -22,7 +21,6 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ArticleList : Fragment() {
-    // TODO: Rename and change types of parameters
     private var query: String? = null
     private var website: String? = null
 
@@ -64,11 +62,10 @@ class ArticleList : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
+         * @param query The search term to use.
+         * @param website The website domain to search.
          * @return A new instance of fragment ArticleList.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(query: String? = null, website: String? = null) =
             ArticleList().apply {
