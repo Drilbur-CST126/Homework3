@@ -3,7 +3,8 @@
     <string name="txt_author_descriptor">By %1$s</string>
     <string name="txt_search">Search</string>
     <string name="btn_submit">Submit</string>
-    <string name="txt_related_articles">Related Articles:</string>
+    <string name="btn_related_articles">Related Articles</string>
 
     <string name="title_activity_full_article_page">Full Article</string>
+    <string name="title_activity_related_articles">Related Articles</string>
 </resources>

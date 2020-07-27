@@ -15,9 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="true" />
 
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
@@ -28,8 +25,11 @@
             android:value="true" />
 
         <activity
+            android:name=".RelatedArticles"
+            android:label="@string/title_activity_related_articles" />
+        <activity
             android:name=".FullArticlePage"
-            android:label="@string/title_activity_full_article_page"></activity>
+            android:label="@string/title_activity_full_article_page" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

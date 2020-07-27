@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         val fragment = ArticleList.newInstance(query = edit_search.text.toString())
         transaction.replace(R.id.frg_search, fragment, fragment.toString())
-        transaction.addToBackStack(fragment.toString())
         transaction.commit()
     }
 }
