@@ -44,6 +44,12 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_author" />
 
         <Button
+            android:id="@+id/btn_read_full_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_read_full_article" />
+
+        <Button
             android:id="@+id/btn_related_articles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

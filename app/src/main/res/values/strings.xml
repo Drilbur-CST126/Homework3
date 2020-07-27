@@ -4,6 +4,7 @@
     <string name="txt_search">Search</string>
     <string name="btn_submit">Submit</string>
     <string name="btn_related_articles">Related Articles</string>
+    <string name="btn_read_full_article">Read Full Article</string>
 
     <string name="title_activity_full_article_page">Full Article</string>
     <string name="title_activity_related_articles">Related Articles</string>
